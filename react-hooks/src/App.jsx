@@ -1,28 +1,43 @@
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { FaStar } from "react-icons/fa";
 
-// Utility function to create an array of given length
-const createArray = (length) => [...Array(length)];
-
-function Star({ selected = false }) {
-  return <FaStar color={selected ? "red" : "grey"} />;
+const initialState = {
+  message="hi"
 }
 
-function StarRating({ totalStars = 5 }) {
-  return (
-    <div>
-      {createArray(totalStars).map((n, i) => (
-        <Star key={i} />
-      ))}
-    </div>
-  );
+function reducer(state, action) {
+  switch (action.type) {
+    case "yell":
+      return {
+        message: "HEY"
+      }
+  }
+
 }
 
 function App() {
-  return <StarRating totalStars={10} />;
+  const [checked, toggke] = useReducer(
+    (checked) => !checked,
+    false
+  );
+
+
+  return (
+    <>
+      <P>Message:{state.message} </P>
+    </>
+  );
+
 }
 
-export default App;
+
+
+
+export default App
+
+//CUSTOM HOOKS MAN WHAT IS THE HOPKS 
+
+
+
