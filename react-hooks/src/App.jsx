@@ -1,43 +1,17 @@
-import { useReducer, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-const initialState = {
-  message="hi"
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "yell":
-      return {
-        message: "HEY"
-      }
-  }
-
-}
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 
 function App() {
-  const [checked, toggke] = useReducer(
-    (checked) => !checked,
-    false
-  );
-
+  const [status, setStatus] = useState("Not Delivered");
 
   return (
-    <>
-      <P>Message:{state.message} </P>
-    </>
+    <div>
+      <h1>The Package is: {status}</h1>
+      <button onClick={() => setStatus("Delevered")}>Deliver</button>
+    </div>
+
+
   );
-
 }
-
-
-
-
-export default App
-
-//CUSTOM HOOKS MAN WHAT IS THE HOPKS 
-
-
-
+export default App;
