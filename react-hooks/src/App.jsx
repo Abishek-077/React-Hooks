@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import { FaStar } from "react-icons/fa";
 
 const createArray = (length) => [...Array(length)];
@@ -10,32 +9,29 @@ function Star({ selected = false, onSelect }) {
     <FaStar
       color={selected ? "red" : "grey"}
       onClick={onSelect}
+      style={{ cursor: "pointer" }}
     />
   );
 }
 
 function StarRating({ totalStars = 5 }) {
-  const [selectedStars, setSelectedStars] = useState(0);
+  const [selectedStar, setSelectedStar] = useState(0);
 
   return (
     <div>
       {createArray(totalStars).map((_, i) => (
         <Star
           key={i}
-          selected={selectedStars > i}
-          onSelect={() => setSelectedStars(i + 1)}
+          selected={selectedStar > i}
+          onSelect={() => setSelectedStar(i + 1)}
         />
       ))}
-      <p>
-        {selectedStars} of {totalStars}
-      </p>
+      <p>{selectedStar} of {totalStars} stars</p>
     </div>
   );
 }
 
-// Example render (if needed):
 ReactDOM.render(<StarRating totalStars={5} />, document.getElementById("root"));
-
 
 // function App() {
 //   const [status, setStatus] = useState("Not Delivered");
@@ -61,7 +57,7 @@ ReactDOM.render(<StarRating totalStars={5} />, document.getElementById("root"));
 // }
 
 function App() {
-  return <StarRating totalStars={10} />;
+  return <StarRating totalStars={15} />;
 }
 
 export default App;
